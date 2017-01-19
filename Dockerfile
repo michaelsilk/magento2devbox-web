@@ -3,7 +3,8 @@ MAINTAINER "Magento"
 
 ENV PHP_EXTRA_CONFIGURE_ARGS="--enable-fpm --with-fpm-user=magento2 --with-fpm-group=magento2"
 
-RUN apt-get update && apt-get install -y \
+RUN printf "deb http://mirrors.aliyun.com/debian jessie main\ndeb http://mirrors.aliyun.com/debian jessie-updates main\ndeb http://mirrors.aliyun.com/debian-security jessie/updates main" > /etc/apt/sources.list && \
+    apt-get update && apt-get install -y \
     apt-utils \
     sudo \
     wget \
